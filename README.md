@@ -13,4 +13,4 @@ Limitations
 
 - Does not use physics
 - Bugs are everywhere
-
+- One player only (left) versus a rudimentary AI Player
