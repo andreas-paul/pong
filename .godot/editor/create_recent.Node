@@ -1,0 +1,14 @@
+CharacterBody2D
+RigidBody2D
+Control
+CenterContainer
+Button
+VBoxContainer
+MarginContainer
+PanelContainer
+AudioStreamPlayer2D
+Node2D
+ColorRect
+Area2D
+Label
+CollisionShape2D

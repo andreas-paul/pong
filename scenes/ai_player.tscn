@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd6lu0xmiu7lu"]
+
+[ext_resource type="Script" path="res://scenes/ai_player.gd" id="1_ovtwp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ji88"]
+size = Vector2(16, 80)
+
+[node name="AIPlayer" type="CharacterBody2D"]
+script = ExtResource("1_ovtwp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7ji88")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -8.0
+offset_top = -40.0
+offset_right = 8.0
+offset_bottom = 40.0

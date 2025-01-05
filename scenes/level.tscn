@@ -1,0 +1,79 @@
+[gd_scene load_steps=7 format=3 uid="uid://bvxcpmf7c1lt8"]
+
+[ext_resource type="PackedScene" uid="uid://ckoqcatgcjv81" path="res://scenes/padel.tscn" id="1_su5le"]
+[ext_resource type="Script" path="res://scenes/level.gd" id="1_xksy0"]
+[ext_resource type="PackedScene" uid="uid://dd6lu0xmiu7lu" path="res://scenes/ai_player.tscn" id="2_sf51t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_65rhv"]
+size = Vector2(1128, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_visby"]
+font_size = 64
+font_color = Color(0.877872, 0.110856, 0.656521, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_dgoxp"]
+font_size = 64
+font_color = Color(0.238572, 0.521759, 0.923096, 1)
+
+[node name="Level" type="Node2D" node_paths=PackedStringArray("player_score_label", "ai_score_label", "ball_source")]
+script = ExtResource("1_xksy0")
+player_score_label = NodePath("PlayerScore")
+ai_score_label = NodePath("AIScore")
+ball_source = NodePath("BallSource")
+
+[node name="FenceTop" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FenceTop"]
+position = Vector2(652, 8)
+shape = SubResource("RectangleShape2D_65rhv")
+
+[node name="ColorRect" type="ColorRect" parent="FenceTop"]
+offset_left = 64.0
+offset_right = 1216.0
+offset_bottom = 16.0
+
+[node name="FenceBottom" type="StaticBody2D" parent="."]
+position = Vector2(0, 624)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FenceBottom"]
+position = Vector2(640, 88)
+shape = SubResource("RectangleShape2D_65rhv")
+
+[node name="ColorRect" type="ColorRect" parent="FenceBottom"]
+custom_minimum_size = Vector2(0, 16)
+offset_left = 64.0
+offset_top = 80.0
+offset_right = 1216.0
+offset_bottom = 96.0
+
+[node name="BallSource" type="Node2D" parent="."]
+visible = false
+position = Vector2(672, 352)
+
+[node name="ColorRect" type="ColorRect" parent="BallSource"]
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+
+[node name="Padel" parent="." instance=ExtResource("1_su5le")]
+position = Vector2(72, 349)
+
+[node name="AIPlayer" parent="." instance=ExtResource("2_sf51t")]
+position = Vector2(1208, 352)
+
+[node name="PlayerScore" type="Label" parent="."]
+offset_left = 160.0
+offset_top = 48.0
+offset_right = 200.0
+offset_bottom = 136.0
+text = "0"
+label_settings = SubResource("LabelSettings_visby")
+
+[node name="AIScore" type="Label" parent="."]
+offset_left = 1080.0
+offset_top = 48.0
+offset_right = 1120.0
+offset_bottom = 136.0
+text = "0"
+label_settings = SubResource("LabelSettings_dgoxp")

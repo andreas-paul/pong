@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctj7eboq8ykiu"]
+
+[ext_resource type="Script" path="res://scenes/controller.gd" id="1_hvn78"]
+
+[node name="Main" type="Node2D"]
+process_mode = 1
+
+[node name="Controller" type="Node2D" parent="."]
+script = ExtResource("1_hvn78")
